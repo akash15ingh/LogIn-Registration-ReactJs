@@ -12,6 +12,7 @@ function Login(props) {
   };
   return (
     <div className="auth-formContainer">
+      {/* {JSON.stringify(email)} */}
       <h2>LOGIN</h2>
       <form className="login-form" onSubmit={SubmitHandler}>
         <label htmlFor="email">Email</label>
@@ -32,7 +33,11 @@ function Login(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">LOGIN</button>
+        {email.length && password.length >= 5 && password.length <= 8 ? (
+          <button type="submit">LOGIN</button>
+        ) : (
+          <></>
+        )}
       </form>
       <button
         className="link-btn"
